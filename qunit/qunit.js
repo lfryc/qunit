@@ -132,7 +132,8 @@ Test.prototype = {
 		}
 
 		var good = 0, bad = 0,
-			tests = id("qunit-tests");
+			tests = id("qunit-tests"),
+            failures = [];
 
 		config.stats.all += this.assertions.length;
 		config.moduleStats.all += this.assertions.length;
@@ -154,6 +155,7 @@ Test.prototype = {
 					bad++;
 					config.stats.bad++;
 					config.moduleStats.bad++;
+                    failures.push( this.assertions[i].message || "(no message)" );
 				}
 			}
 
@@ -206,6 +208,7 @@ Test.prototype = {
 					bad++;
 					config.stats.bad++;
 					config.moduleStats.bad++;
+                    failures.push( this.assertions[i].message || "(no message)" );
 				}
 			}
 		}
@@ -221,7 +224,8 @@ Test.prototype = {
 			module: this.module,
 			failed: bad,
 			passed: this.assertions.length - bad,
-			total: this.assertions.length
+			total: this.assertions.length,
+            failures: failures
 		} );
 	},
 
@@ -856,27 +860,7 @@ function done() {
 }
 
 function validTest( name ) {
-	var filter = config.filter,
-		run = false;
-
-	if ( !filter ) {
-		return true;
-	}
-
-	var not = filter.charAt( 0 ) === "!";
-	if ( not ) {
-		filter = filter.slice( 1 );
-	}
-
-	if ( name.indexOf( filter ) !== -1 ) {
-		return !not;
-	}
-
-	if ( not ) {
-		run = true;
-	}
-
-	return run;
+	return true;
 }
 
 // so far supports only Firefox, Chrome and Opera (buggy)
