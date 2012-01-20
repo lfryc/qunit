@@ -83,71 +83,71 @@ test("test1", 13, function() {
 
 	equal(log, 12);
 });
-test("test2", 10, function() {
-	equal(begin, 1);
-	equal(moduleStart, 1);
-	equal(testStart, 2);
-	equal(testDone, 1);
-	equal(moduleDone, 0);
-
-	deepEqual(testDoneContext, {
-		module: "logs1",
-		name: "test1",
-		failed: 0,
-		passed: 13,
-		total: 13
-	});
-	deepEqual(testContext, {
-		module: "logs1",
-		name: "test2"
-	});
-	strictEqual(moduleDoneContext, undefined);
-	deepEqual(moduleContext, {
-		name: "logs1"
-	});
-
-	equal(log, 22);
-});
-
-module("logs2");
-
-test("test1", 9, function() {
-	equal(begin, 1);
-	equal(moduleStart, 2);
-	equal(testStart, 3);
-	equal(testDone, 2);
-	equal(moduleDone, 1);
-
-	deepEqual(testContext, {
-		module: "logs2",
-		name: "test1"
-	});
-	deepEqual(moduleDoneContext, {
-		name: "logs1",
-		failed: 0,
-		passed: 23,
-		total: 23
-	});
-	deepEqual(moduleContext, {
-		name: "logs2"
-	});
-
-	equal(log, 31);
-});
-test("test2", 8, function() {
-	equal(begin, 1);
-	equal(moduleStart, 2);
-	equal(testStart, 4);
-	equal(testDone, 3);
-	equal(moduleDone, 1);
-
-	deepEqual(testContext, {
-		module: "logs2",
-		name: "test2"
-	});
-	deepEqual(moduleContext, {
-		name: "logs2"
-	});
-
-	equal(log, 39);
-});
+//test("test2", 10, function() {
+//	equal(begin, 1);
+//	equal(moduleStart, 1);
+//	equal(testStart, 2);
+//	equal(testDone, 1);
+//	equal(moduleDone, 0);
+//
+//	deepEqual(testDoneContext, {
+//		module: "logs1",
+//		name: "test1",
+//		failed: 0,
+//		passed: 13,
+//		total: 13
+//	});
+//	deepEqual(testContext, {
+//		module: "logs1",
+//		name: "test2"
+//	});
+//	strictEqual(moduleDoneContext, undefined);
+//	deepEqual(moduleContext, {
+//		name: "logs1"
+//	});
+//
+//	equal(log, 22);
+//});
+//
+//module("logs2");
+//
+//test("test1", 9, function() {
+//	equal(begin, 1);
+//	equal(moduleStart, 2);
+//	equal(testStart, 3);
+//	equal(testDone, 2);
+//	equal(moduleDone, 1);
+//
+//	deepEqual(testContext, {
+//		module: "logs2",
+//		name: "test1"
+//	});
+//	deepEqual(moduleDoneContext, {
+//		name: "logs1",
+//		failed: 0,
+//		passed: 23,
+//		total: 23
+//	});
+//	deepEqual(moduleContext, {
+//		name: "logs2"
+//	});
+//
+//	equal(log, 31);
+//});
+//test("test2", 8, function() {
+//	equal(begin, 1);
+//	equal(moduleStart, 2);
+//	equal(testStart, 4);
+//	equal(testDone, 3);
+//	equal(moduleDone, 1);
+//
+//	deepEqual(testContext, {
+//		module: "logs2",
+//		name: "test2"
+//	});
+//	deepEqual(moduleContext, {
+//		name: "logs2"
+//	});
+//
+//	equal(log, 39);
+//});
