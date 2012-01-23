@@ -55,125 +55,125 @@ test("module without setup/teardown", function() {
 	ok(true);
 });
 
-//if (typeof setTimeout !== 'undefined') {
-//state = 'fail';
-//
-//module("teardown and stop", {
-//	teardown: function() {
-//		equal(state, "done", "Test teardown.");
-//	}
-//});
-//
-//test("teardown must be called after test ended", function() {
-//	expect(1);
-//	stop();
-//	setTimeout(function() {
-//		state = "done";
-//		start();
-//	}, 13);
-//});
-//
-//test("parameter passed to stop increments semaphore n times", function() {
-//	expect(1);
-//	stop(3);
-//	setTimeout(function() {
-//		state = "not enough starts";
-//		start(), start();
-//	}, 13);
-//	setTimeout(function() {
-//		state = "done";
-//		start();
-//	}, 15);
-//});
-//
-//test("parameter passed to start decrements semaphore n times", function() {
-//	expect(1);
-//	stop(), stop(), stop();
-//	setTimeout(function() {
-//		state = "done";
-//		start(3);
-//	}, 18);
-//});
-//
-//module("async setup test", {
-//	setup: function() {
-//		stop();
-//		setTimeout(function(){
-//			ok(true);
-//			start();
-//		}, 500);
-//	}
-//});
-//
-//asyncTest("module with async setup", function() {
-//	expect(2);
-//	ok(true);
-//	start();
-//});
-//
-//module("async teardown test", {
-//	teardown: function() {
-//		stop();
-//		setTimeout(function(){
-//			ok(true);
-//			start();
-//		}, 500);
-//	}
-//});
-//
-//asyncTest("module with async teardown", function() {
-//	expect(2);
-//	ok(true);
-//	start();
-//});
-//
-//module("asyncTest");
-//
-//asyncTest("asyncTest", function() {
-//	expect(2);
-//	ok(true);
-//	setTimeout(function() {
-//		state = "done";
-//		ok(true);
-//		start();
-//	}, 13);
-//});
-//
-//asyncTest("asyncTest", 2, function() {
-//	ok(true);
-//	setTimeout(function() {
-//		state = "done";
-//		ok(true);
-//		start();
-//	}, 13);
-//});
-//
-//test("sync", 2, function() {
-//	stop();
-//	setTimeout(function() {
-//		ok(true);
-//		start();
-//	}, 13);
-//	stop();
-//	setTimeout(function() {
-//		ok(true);
-//		start();
-//	}, 125);
-//});
-//
-//test("test synchronous calls to stop", 2, function() {
-//    stop();
-//    setTimeout(function(){
-//        ok(true, 'first');
-//        start();
-//        stop();
-//        setTimeout(function(){
-//            ok(true, 'second');
-//            start();
-//        }, 150);
-//    }, 150);
-//});
-//}
+if (typeof setTimeout !== 'undefined') {
+state = 'fail';
+
+module("teardown and stop", {
+	teardown: function() {
+		equal(state, "done", "Test teardown.");
+	}
+});
+
+test("teardown must be called after test ended", function() {
+	expect(1);
+	stop();
+	setTimeout(function() {
+		state = "done";
+		start();
+	}, 13);
+});
+
+test("parameter passed to stop increments semaphore n times", function() {
+	expect(1);
+	stop(3);
+	setTimeout(function() {
+		state = "not enough starts";
+		start(), start();
+	}, 13);
+	setTimeout(function() {
+		state = "done";
+		start();
+	}, 15);
+});
+
+test("parameter passed to start decrements semaphore n times", function() {
+	expect(1);
+	stop(), stop(), stop();
+	setTimeout(function() {
+		state = "done";
+		start(3);
+	}, 18);
+});
+
+module("async setup test", {
+	setup: function() {
+		stop();
+		setTimeout(function(){
+			ok(true);
+			start();
+		}, 500);
+	}
+});
+
+asyncTest("module with async setup", function() {
+	expect(2);
+	ok(true);
+	start();
+});
+
+module("async teardown test", {
+	teardown: function() {
+		stop();
+		setTimeout(function(){
+			ok(true);
+			start();
+		}, 500);
+	}
+});
+
+asyncTest("module with async teardown", function() {
+	expect(2);
+	ok(true);
+	start();
+});
+
+module("asyncTest");
+
+asyncTest("asyncTest", function() {
+	expect(2);
+	ok(true);
+	setTimeout(function() {
+		state = "done";
+		ok(true);
+		start();
+	}, 13);
+});
+
+asyncTest("asyncTest", 2, function() {
+	ok(true);
+	setTimeout(function() {
+		state = "done";
+		ok(true);
+		start();
+	}, 13);
+});
+
+test("sync", 2, function() {
+	stop();
+	setTimeout(function() {
+		ok(true);
+		start();
+	}, 13);
+	stop();
+	setTimeout(function() {
+		ok(true);
+		start();
+	}, 125);
+});
+
+test("test synchronous calls to stop", 2, function() {
+    stop();
+    setTimeout(function(){
+        ok(true, 'first');
+        start();
+        stop();
+        setTimeout(function(){
+            ok(true, 'second');
+            start();
+        }, 150);
+    }, 150);
+});
+}
 
 module("save scope", {
 	setup: function() {
