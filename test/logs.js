@@ -134,20 +134,20 @@ test("test1", 9, function() {
 
 	equal(log, 31);
 });
-//test("test2", 8, function() {
-//	equal(begin, 1);
-//	equal(moduleStart, 2);
-//	equal(testStart, 4);
-//	equal(testDone, 3);
-//	equal(moduleDone, 1);
-//
-//	deepEqual(testContext, {
-//		module: "logs2",
-//		name: "test2"
-//	});
-//	deepEqual(moduleContext, {
-//		name: "logs2"
-//	});
-//
-//	equal(log, 39);
-//});
+test("test2", 8, function() {
+	equal(begin, 1);
+	equal(moduleStart, 2);
+	equal(testStart, 4);
+	equal(testDone, 3);
+	equal(moduleDone, 1);
+
+	deepEqual(testContext, {
+		module: "logs2",
+		name: "test2"
+	});
+	deepEqual(moduleContext, {
+		name: "logs2"
+	});
+
+	equal(log, 39);
+});
