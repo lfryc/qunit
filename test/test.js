@@ -310,17 +310,17 @@ test("raises",function() {
 
 });
 
-//if (typeof document !== "undefined") {
+if (typeof document !== "undefined") {
 
-//module("fixture");
-//test("setup", function() {
-//	document.getElementById("qunit-fixture").innerHTML = "foobar";
-//});
-//test("basics", function() {
-//	equal( document.getElementById("qunit-fixture").innerHTML, "test markup", "automatically reset" );
-//});
-//
-//}
+module("fixture");
+test("setup", function() {
+	document.getElementById("qunit-fixture").innerHTML = "foobar";
+});
+test("basics", function() {
+	equal( document.getElementById("qunit-fixture").innerHTML, "test markup", "automatically reset" );
+});
+
+}
 
 module("custom assertions");
 (function() {
